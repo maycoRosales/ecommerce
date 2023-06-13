@@ -1,9 +1,14 @@
 import React from 'react'
+import BurgerCard from '../components/BurgerCard'
 
-const ItemListConteiner = ({greeting}) => {
+const ItemListConteiner = ({burgersList}) => {
     return (
-        <div style={{fontSize: "2rem", color: "#ffce56", padding:"250px", backgroundColor:"#000"}}>{greeting}</div>
-    )
-}
+        <div className='cardContainer'>
+            {burgersList.map((burger) => {
+                return <BurgerCard key={burger.id} burgerData={burger}/>
+            })}
+        </div>
+    );
+};
 
 export default ItemListConteiner

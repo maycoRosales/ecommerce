@@ -1,11 +1,11 @@
 import React from 'react'
 import BurgerDetailCard from './BurgerDetailCard'
 
-const ItemDetailContainer = ({burgersList}) => {
+const ItemDetailContainer = ({ productsData }) => {
     return (
         <div className='cardDetailContainer'>
-            {burgersList.map((burger) => {
-                return <BurgerDetailCard key={burger.id} burgerData={burger}/>
+            {productsData.map((product) => {
+                return <BurgerDetailCard key={product.id} productData={product}/>
             })}
         </div>
     );

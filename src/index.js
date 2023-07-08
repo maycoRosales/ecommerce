@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCZGPICZipSv9PBZyBkvaA2LHiaBNcwMbQ",
+  authDomain: "coderhouse-react-ecommer-80996.firebaseapp.com",
+  projectId: "coderhouse-react-ecommer-80996",
+  storageBucket: "coderhouse-react-ecommer-80996.appspot.com",
+  messagingSenderId: "293184673499",
+  appId: "1:293184673499:web:74a6bf228d9f22accb9efe"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

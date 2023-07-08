@@ -1,14 +1,68 @@
 .App {
-  text-align: center;
   font-family: 'Satoshi', sans-serif;
+  background-color: #535353;
+  height: 2400px;
+}
+.link-nav:link, .link-nav:visited, .link-nav:active{
+  color: inherit;
+  text-decoration: none;
+}
+.link-nav:hover{
+  color: #ffc107;
+}
+#detail, #home-link.link-nav:hover{
+  color: #000;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
 }
 
-.cardContainer {
+/*------------------------card list-----------------*/
+
+.card-list-container {
+  padding: 0% 15%;
   width: 100%;
-  background-color: #535353;
-  align-content: center;
-  justify-content:stretch;
+  justify-content: stretch;
   display: grid;
-  padding: 5rem;
   grid-template-columns: repeat(3, 1fr);
+}
+.card-list{
+  margin: 5% 2%;
+}
+.card-list-img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2% 2% 0 0;
+}
+/*---------------------------------card detail---------------------*/
+
+.cardDetailContainer {
+  padding: 1% 5%;
+  width: 100%;
+}  
+.card-gr{
+height: 200px;
+}
+.card-detail-img { 
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1% 0 0 1% ;
+}
+.card-detail-footer{
+  justify-content: flex-end;
+  align-items: baseline;
+}
+.detail-description{
+  color: #ffc107;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000
+}
+@media screen and (max-width: 960px) {
+  .card-list-container {
+    padding: 0% 5%;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

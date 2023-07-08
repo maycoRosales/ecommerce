@@ -3,7 +3,7 @@ import BurgerDetailCard from './BurgerDetailCard'
 
 const ItemDetailContainer = ({burgersList}) => {
     return (
-        <div>
+        <div className='cardDetailContainer'>
             {burgersList.map((burger) => {
                 return <BurgerDetailCard key={burger.id} burgerData={burger}/>
             })}

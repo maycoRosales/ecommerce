@@ -4,16 +4,6 @@ import ItemListConteiner from "../components/ItemListConteiner";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import LoaderComponent from "../components/LoaderComponent";
 
-
-// const homeStyles = {
-//     width: "100vw",
-//     minHeight: "100vh",
-//     margin: "auto",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-// };
-
 const Home = () => {
     const [productsData, setProductsData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -37,17 +27,20 @@ const Home = () => {
 
     setTimeout(() => {
         setWelcome(false);
-    }, 5000);
+    }, 3000);
 
     return (
-        // style={homeStyles}
-        <div >
+        <div className={"homeStyles"}>
         {loading ? (
-            <LoaderComponent />
+            <div >
+                <LoaderComponent />
+            </div>
         ) : error ? (
             <div>Error </div>
         ) : welcome ? (
-            <div>Welcome</div>
+            <div >
+                <p className={"font-46"}>Welcome</p>
+            </div>
         ) : (
             <ItemListConteiner productsData={productsData} />
         )}

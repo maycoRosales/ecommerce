@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import CartButtons from './CartButtons';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 
 const BurgerCard = ({productData}) => {
@@ -35,14 +35,17 @@ const BurgerCard = ({productData}) => {
             </Carousel>  
         </Card.Header>
         <Card.Body >
-            <Card.Title className='center'>{productData.name}</Card.Title> 
+            <Card.Title className="center">{productData.name}</Card.Title> 
             <Card.Text>
                 {productData.description}
             </Card.Text>
-            <CartButtons />
+            <Link id='detail' className='link-nav' to={`/item/${productData.id}`}>+Details</Link>            
+            {/* <Button className="right" variant="warning" size="sm">
+                <Link id='detail' className='link-nav' to={`/item/${productData.id}`}>+Details</Link>
+            </Button> */}
         </Card.Body>
-        <Card.Footer className="transparent right">
-            <Button variant="warning"><Link id='detail' className='link-nav' to={`/item/${productData.id}`}>Details</Link></Button>
+        <Card.Footer className="transparent">
+            <CartButtons productId={productData.id}/>
         </Card.Footer>
     </Card>
 )

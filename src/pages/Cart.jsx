@@ -13,26 +13,15 @@ const fetchProductsByIds = async (ids) => {
     );
 
     const products = productSnapshots.map((productSnapshot) => {
+
         if (productSnapshot.exists()) {
         return { id: productSnapshot.id, ...productSnapshot.data() };
-        } else {
+        } else {        
+        console.log("existe")
         return null;
         }
     });
-
     return products.filter((product) => product !== null);
-    };
-
-    const styles = {
-    cartWrapper: {
-        display: "flex",
-        flexDirection: "row",
-        width: "100vw",
-        height: "100vh",
-    },
-    productCardDetail: {
-        width: "60%",
-    },
 };
 
 const Cart = () => {
@@ -45,22 +34,19 @@ const Cart = () => {
         const ids = count.products.map((product) => product.productId);
         fetchProductsByIds(ids)
         .then((res) => {
-            console.log(res);
             setProductsData(res);
         })
-        .catch((err) => setError(true))
+        .catch((error) => setError(true))
         .then(() => setLoading(false));
     }, [count]);
-
     return( 
-        <div >
+        <div className={"homeStyles"}>
         {loading ? (
             <LoaderComponent />
         ) : error ? (
-            <div> Error </div>
+            <div> Error {console.log(productsData)}</div>
         ) : (
-            <div style={styles.cartWrapper}>
-                <div style={styles.productCardDetail}>
+                <div className={"cart-list-container"}>
                     {productsData.map((product) => (
                         <CartDetailCard
                             key={product.id}
@@ -69,7 +55,6 @@ const Cart = () => {
                         />
                     ))}
                 </div>
-            </div>
         )}
         </div>
     )

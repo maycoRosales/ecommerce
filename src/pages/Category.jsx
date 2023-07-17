@@ -35,7 +35,7 @@ const Category = () => {
 
     return (
         // style={homeStyles}
-        <div >
+        <div className={"homeStyles"}>
         {loading ? (
             <LoaderComponent />
         ) : error ? (

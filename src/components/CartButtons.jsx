@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
 
 const CartButtons = ({ productId }) => {
-  const [state, setState] = useState(1);
+  const [state, setState] = useState(0);
   const { count, setCount } = useContext(CartContext);
   const handleMoreClick = () => {
     setState(state + 1);
@@ -21,7 +21,7 @@ const CartButtons = ({ productId }) => {
       existingProduct.qty += state;
     } else {
       const newProduct = {
-        productId,
+        productId: productId,
         qty: state,
       };
       setCount((prevState) => ({
@@ -37,21 +37,20 @@ const CartButtons = ({ productId }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "column",
       }}
     >
       <div style={{ margin: "10px" }}>
         <Button
           variant="outline-secondary"
-          className="rounded-0"
+          className="rounded-4"
           onClick={handleLessClick}
         >
           -
         </Button>
-        <span style={{ margin: "10px", fontSize: "18px" }}>{state}</span>
+        <span style={{ margin: "10px", fontSize: "12px" }}>{state}</span>
         <Button
           variant="outline-secondary"
-          className="rounded-0"
+          className="rounded-4"
           onClick={handleMoreClick}
         >
           +
@@ -60,6 +59,7 @@ const CartButtons = ({ productId }) => {
       <Button
         variant='warning'
         className="ml-2"
+        size="sm"
         onClick={addToCart}
       >
         Add to cart

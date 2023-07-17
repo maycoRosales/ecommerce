@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import ItemDetailConteiner from '../components/ItemDetailConteiner';
+import LoaderComponent from "../components/LoaderComponent";
 
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
@@ -22,8 +23,19 @@ const Item = () => {
             .catch((error) => setError(true))
             .then(() => setLoading(false));
     }, [itemId]);
-    
-    return <ItemDetailConteiner productsData={productsData} />;
+    return (
+        // style={homeStyles}
+        <div className={"homeStyles"}>
+        {loading ? (
+            <LoaderComponent />
+        ) : error ? (
+            <div>Error </div>
+        ) : (
+            <ItemDetailConteiner productsData={productsData} />
+        )}
+        </div>
+    );
+    // return <ItemDetailConteiner productsData={productsData} />;
 }
 
 export default Item

@@ -77,7 +77,7 @@ const BurgerDetailCard = ({productData}) => {
                 <ListGroup horizontal={true} className='my-2 card-detail-footer'>
                     <Card.Title>{productData.price}</Card.Title>
                     <Card.Text>💲</Card.Text>
-                    <CartButtons />
+                    <CartButtons productId={productData.id}/>
                 </ListGroup>
             </Card.Footer>
         </Card>
